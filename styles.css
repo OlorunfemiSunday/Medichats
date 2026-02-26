@@ -1,5 +1,4 @@
 /* ================= RESET ================= */
-
 * {
     margin: 0;
     padding: 0;
@@ -11,9 +10,7 @@ body {
     overflow-x: hidden;
 }
 
-
 /* ================= HEADER ================= */
-
 header {
     width: 100%;
     position: fixed;
@@ -23,6 +20,7 @@ header {
     transition: 0.3s;
 }
 
+/* Navbar background and link color after scroll */
 header.scrolled {
     background: #fff;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
@@ -41,9 +39,7 @@ header.scrolled {
     height: 55px;
 }
 
-
 /* ================= NAVIGATION ================= */
-
 .logo-link {
     display: flex;
     align-items: center;
@@ -63,9 +59,10 @@ nav {
     margin-left: 30px;
 }
 
+/* Dark links on hero page */
 .nav-list li a {
     text-decoration: none;
-    color: white;
+    color: #333;
     font-weight: 500;
     transition: 0.3s;
 }
@@ -78,18 +75,14 @@ header.scrolled .nav-list li a {
     color: #03E1D2;
 }
 
-
 /* ================= MOBILE MENU ================= */
-
 .menu-toggle {
     display: none;
     font-size: 24px;
     cursor: pointer;
 }
 
-
 /* ================= DROPDOWN ================= */
-
 .dropdown {
     position: relative;
 }
@@ -103,6 +96,7 @@ header.scrolled .nav-list li a {
     border-radius: 8px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     display: none;
+    z-index: 999;
 }
 
 .dropdown-content li {
@@ -119,19 +113,32 @@ header.scrolled .nav-list li a {
     background: #f4f4f4;
 }
 
-.dropdown:hover .dropdown-content {
-    display: block;
+/* Desktop hover */
+@media(min-width:769px) {
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
 }
 
+/* Mobile click */
+@media(max-width:768px) {
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        display: none;
+    }
+    .dropdown.dropdown-active .dropdown-content {
+        display: block;
+    }
+}
 
 /* ================= HERO ================= */
-
 .hero-section {
     position: relative;
     min-height: 100vh;
     background:
-    linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)),
-    url("hero2.jpeg");
+        linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)),
+        url("hero2.jpeg");
     background-size: cover;
     background-position: center;
     display: flex;
@@ -147,7 +154,7 @@ header.scrolled .nav-list li a {
     font-size: 4rem;
     color: #333;
     margin-bottom: 20px;
-    line-height: 1.5rem;
+    line-height: 1.2;
 }
 
 .hero-content p {
@@ -163,9 +170,7 @@ header.scrolled .nav-list li a {
     height: 80vh;
 }
 
-
 /* ================= BUTTON ================= */
-
 .chop,
 .chop2 {
     background: linear-gradient(135deg, #358FEF, #03E1D2);
@@ -183,9 +188,7 @@ header.scrolled .nav-list li a {
     box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
-
 /* ================= SUBSCRIPTION ================= */
-
 .page-2 {
     padding: 80px 20px;
 }
@@ -238,9 +241,7 @@ header.scrolled .nav-list li a {
     margin-top: 10px;
 }
 
-
 /* ================= SIGNUP ================= */
-
 .hero2 {
     padding: 100px 20px;
     background: linear-gradient(135deg, #4ef2a5, #00d2ff);
@@ -272,9 +273,7 @@ input, textarea {
     border: none;
 }
 
-
 /* ================= FOOTER ================= */
-
 .footer {
     background: #111;
     color: white;
@@ -309,48 +308,44 @@ input, textarea {
     margin-bottom: 10px;
 }
 
-
 /* ================= MOBILE ================= */
-
 @media(max-width:768px){
+    .menu-toggle {
+        display: block;
+    }
 
-.menu-toggle {
-    display: block;
-}
+    .nav-list {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: white;
+        width: 250px;
+        flex-direction: column;
+        display: none;
+    }
 
-.nav-list {
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background: white;
-    width: 250px;
-    flex-direction: column;
-    display: none;
-}
+    .nav-list.active {
+        display: flex;
+    }
 
-.nav-list.active {
-    display: flex;
-}
+    .nav-list li {
+        margin: 15px;
+    }
 
-.nav-list li {
-    margin: 15px;
-}
+    .nav-list li a {
+        color: #333;
+    }
 
-.nav-list li a {
-    color: #333;
-}
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+    }
 
-.dropdown-content {
-    position: static;
-    box-shadow: none;
-}
+    .img1 {
+        display: none;
+    }
 
-.img1 {
-    display: none;
-}
-
-.hero-content h1 {
-    font-size: 2.5rem;
-}
-
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
 }
