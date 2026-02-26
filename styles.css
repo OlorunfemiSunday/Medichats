@@ -1,4 +1,5 @@
-/* Reset & Base */
+/* ================= RESET ================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -17,28 +18,23 @@ header {
     width: 100%;
     position: fixed;
     top: 0;
-    left: 0;
     z-index: 1000;
-    transition: all 0.4s ease;
     padding: 15px 0;
+    transition: 0.3s;
 }
 
 header.scrolled {
-    background: white;
+    background: #fff;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
-header.scrolled nav ul li a {
-    color: #333;
-}
-
 .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     max-width: 1200px;
     margin: auto;
     padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo {
@@ -46,54 +42,110 @@ header.scrolled nav ul li a {
 }
 
 
-/* NAVIGATION */
+/* ================= NAVIGATION ================= */
 
-nav ul {
+.logo-link {
+    display: flex;
+    align-items: center;
+}
+
+nav {
+    position: relative;
+}
+
+.nav-list {
     list-style: none;
     display: flex;
     align-items: center;
 }
 
-nav ul li {
+.nav-list li {
     margin-left: 30px;
 }
 
-nav ul li a {
-    color: white;
+.nav-list li a {
     text-decoration: none;
+    color: white;
     font-weight: 500;
     transition: 0.3s;
 }
 
-nav ul li a:hover {
+header.scrolled .nav-list li a {
+    color: #333;
+}
+
+.nav-list li a:hover {
     color: #03E1D2;
 }
 
 
-/* ================= HERO SECTION ================= */
+/* ================= MOBILE MENU ================= */
+
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+/* ================= DROPDOWN ================= */
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 35px;
+    left: 0;
+    background: white;
+    min-width: 220px;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    display: none;
+}
+
+.dropdown-content li {
+    margin: 0;
+}
+
+.dropdown-content a {
+    color: #333 !important;
+    padding: 12px 16px;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background: #f4f4f4;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/* ================= HERO ================= */
 
 .hero-section {
     position: relative;
+    min-height: 100vh;
     background:
-        linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)),
-        url('hero2.jpeg');
+    linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)),
+    url("hero2.jpeg");
     background-size: cover;
     background-position: center;
-    min-height: 100vh;
     display: flex;
     align-items: center;
-    padding: 120px 10% 60px;
+    padding: 120px 10%;
 }
 
 .hero-content {
     max-width: 600px;
-    z-index: 2;
 }
 
 .hero-content h1 {
     font-size: 4rem;
     color: #333;
-    line-height: 1.1;
     margin-bottom: 20px;
 }
 
@@ -103,29 +155,23 @@ nav ul li a:hover {
     margin-bottom: 30px;
 }
 
-
-/* Hero Image */
-
 .img1 {
     position: absolute;
     right: 5%;
     bottom: 0;
     height: 80vh;
-    max-width: 45%;
-    object-fit: contain;
 }
 
 
-/* Buttons */
+/* ================= BUTTON ================= */
 
 .chop,
 .chop2 {
     background: linear-gradient(135deg, #358FEF, #03E1D2);
-    color: white;
     border: none;
+    color: white;
     padding: 15px 40px;
     border-radius: 50px;
-    font-size: 1.1rem;
     cursor: pointer;
     transition: 0.3s;
 }
@@ -137,13 +183,24 @@ nav ul li a:hover {
 }
 
 
-/* ================= SUBSCRIPTION CARDS ================= */
+/* ================= SUBSCRIPTION ================= */
+
+.page-2 {
+    padding: 80px 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
 
 .page-2-container {
+    max-width: 1200px;
+    margin: auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
-    padding: 80px 10%;
 }
 
 .card {
@@ -151,7 +208,6 @@ nav ul li a:hover {
     border-radius: 15px;
     overflow: hidden;
     position: relative;
-    cursor: pointer;
 }
 
 .card img {
@@ -163,150 +219,137 @@ nav ul li a:hover {
 .card .content {
     position: absolute;
     bottom: -100%;
-    left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(53, 143, 239, 0.95);
+    background: rgba(53,143,239,0.95);
     color: white;
-    padding: 40px;
-    transition: 0.5s ease;
+    padding: 30px;
+    transition: 0.4s;
 }
 
 .card:hover .content {
     bottom: 0;
 }
 
+.price {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
 
-/* ================= SIGNUP SECTION ================= */
+
+/* ================= SIGNUP ================= */
 
 .hero2 {
     padding: 100px 20px;
     background: linear-gradient(135deg, #4ef2a5, #00d2ff);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     text-align: center;
 }
 
 .hero2 h2 {
-    font-size: 3.2rem;
     color: white;
-    margin-bottom: 30px;
-}
-
-
-/* Social Icons */
-
-.socials {
+    font-size: 3rem;
     margin-bottom: 20px;
 }
 
 .socials i {
     color: white;
-    font-size: 1.8rem;
-    margin: 0 12px;
-    cursor: pointer;
-    transition: 0.3s;
+    font-size: 1.6rem;
+    margin: 10px;
 }
-
-.socials i:hover {
-    transform: scale(1.2);
-}
-
-
-/* Form */
 
 #regForm {
-    width: 100%;
     max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    margin: auto;
 }
 
-input,
-textarea {
+input, textarea {
     width: 100%;
-    padding: 18px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
     border: none;
-    border-radius: 12px;
-    font-size: 1rem;
+}
+
+
+/* ================= FOOTER ================= */
+
+.footer {
+    background: #111;
+    color: white;
+    padding: 60px 20px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 30px;
+}
+
+.footer-col h3 {
+    margin-bottom: 15px;
+}
+
+.footer-col a {
+    display: block;
+    color: #ccc;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.footer-col a:hover {
+    color: white;
+}
+
+.logo2 {
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+.menu-toggle {
+    display: block;
+}
+
+.nav-list {
+    position: absolute;
+    top: 60px;
+    right: 0;
     background: white;
+    width: 250px;
+    flex-direction: column;
+    display: none;
 }
 
-textarea {
-    resize: none;
+.nav-list.active {
+    display: flex;
 }
 
-
-/* Signup Button */
-
-.chop2 {
-    margin-top: 20px;
-    padding: 16px 60px;
-    font-size: 1.2rem;
-    border-radius: 12px;
+.nav-list li {
+    margin: 15px;
 }
 
-
-
-/* ================= MOBILE RESPONSIVE ================= */
-
-@media (max-width: 992px) {
-
-    .hero-content h1 {
-        font-size: 3rem;
-    }
-
-    .img1 {
-        max-width: 40%;
-    }
-
+.nav-list li a {
+    color: #333;
 }
 
-@media (max-width: 768px) {
-
-    nav ul {
-        display: none;
-    }
-
-    .hero-section {
-        padding: 120px 20px 60px;
-        text-align: center;
-        justify-content: center;
-    }
-
-    .hero-content {
-        max-width: 100%;
-    }
-
-    .hero-content h1 {
-        font-size: 2.4rem;
-    }
-
-    .hero-content p {
-        font-size: 1rem;
-    }
-
-    .img1 {
-        display: none;
-    }
-
-    .hero2 h2 {
-        font-size: 2.3rem;
-    }
-
+.dropdown-content {
+    position: static;
+    box-shadow: none;
 }
 
-@media (max-width: 480px) {
+.img1 {
+    display: none;
+}
 
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-
-    .chop,
-    .chop2 {
-        width: 100%;
-    }
+.hero-content h1 {
+    font-size: 2.5rem;
+}
 
 }
