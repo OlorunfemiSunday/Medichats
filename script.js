@@ -1,32 +1,93 @@
-// Change navbar background on scroll
-window.addEventListener('scroll', function() {
-    const navbar = document.getElementById('navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
+// ================= NAVBAR SCROLL EFFECT =================
+
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", () => {
+
+    if (navbar) {
+        if (window.scrollY > 50)
+            navbar.classList.add("scrolled");
+        else
+            navbar.classList.remove("scrolled");
     }
+
 });
 
-// Form Submission Simulation
-const regForm = document.getElementById('regForm');
 
-regForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const name = document.getElementById('fname').value;
-    
-    // Simple feedback
-    alert(`Thank you, ${name}! Your consultation request has been received. Our team will contact you shortly.`);
-    
-    regForm.reset();
+
+// ================= MOBILE MENU TOGGLE =================
+
+const menuToggle = document.getElementById("mobile-menu");
+const navList = document.getElementById("nav-list");
+
+if (menuToggle && navList) {
+
+    menuToggle.addEventListener("click", () => {
+
+        navList.classList.toggle("active");
+
+    });
+
+}
+
+
+
+// ================= CLOSE MOBILE MENU WHEN LINK CLICKED =================
+
+const navLinks = document.querySelectorAll(".nav-list a");
+
+navLinks.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navList.classList.remove("active");
+
+    });
+
 });
 
-// Mobile Menu Toggle
-const menuToggle = document.getElementById('mobile-menu');
-const navList = document.querySelector('.nav-list');
 
-menuToggle.addEventListener('click', () => {
-    navList.classList.toggle('active');
-    // You can add CSS for .nav-list.active to show a vertical menu
-});
+
+// ================= SMOOTH SCROLL FUNCTION =================
+
+function scrollToSignup() {
+
+    const signup = document.getElementById("signup");
+
+    if (signup) {
+
+        signup.scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }
+
+}
+
+
+
+// ================= FORM SUBMISSION =================
+
+const regForm = document.getElementById("regForm");
+
+if (regForm) {
+
+    regForm.addEventListener("submit", function(e) {
+
+        e.preventDefault();
+
+        // safer selector (first input field)
+        const nameInput = regForm.querySelector('input[type="text"]');
+
+        const name = nameInput ? nameInput.value : "User";
+
+        // Professional confirmation message
+        alert(
+            `Thank you, ${name}! Your appointment request has been received. Our medical team will contact you shortly.`
+        );
+
+        regForm.reset();
+
+    });
+
+}
