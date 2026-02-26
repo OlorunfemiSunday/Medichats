@@ -1,63 +1,125 @@
-body {
+/* Reset & Base */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
 }
 
-/* Header & Nav */
+
+/* ================= HEADER ================= */
+
 header {
     width: 100%;
     position: fixed;
-    z-index: 100;
-    transition: 0.4s ease;
-    padding: 10px 0;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: all 0.4s ease;
+    padding: 15px 0;
 }
 
 header.scrolled {
     background: white;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
-header.scrolled nav ul li a { color: #333; }
+header.scrolled nav ul li a {
+    color: #333;
+}
 
 .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: auto;
     padding: 0 20px;
 }
 
-.logo { height: 60px; }
+.logo {
+    height: 55px;
+}
 
-nav ul { list-style: none; display: flex; }
-nav ul li { margin-left: 25px; position: relative; }
-nav ul li a { color: white; text-decoration: none; font-weight: 500; }
 
-/* Hero Section */
+/* NAVIGATION */
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #03E1D2;
+}
+
+
+/* ================= HERO SECTION ================= */
+
 .hero-section {
     position: relative;
-    background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('hero2.jpeg');
+    background:
+        linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)),
+        url('hero2.jpeg');
     background-size: cover;
+    background-position: center;
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding: 0 10%;
+    padding: 120px 10% 60px;
 }
 
-.hero-content h1 { font-size: 4rem; color: #444; line-height: 1.1; margin-bottom: 20px; }
-.hero-content p { font-size: 1.2rem; color: #666; margin-bottom: 30px; }
+.hero-content {
+    max-width: 600px;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    color: #333;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+
+/* Hero Image */
 
 .img1 {
     position: absolute;
     right: 5%;
     bottom: 0;
     height: 80vh;
-    z-index: 1;
+    max-width: 45%;
+    object-fit: contain;
 }
 
-.chop, .chop2 {
+
+/* Buttons */
+
+.chop,
+.chop2 {
     background: linear-gradient(135deg, #358FEF, #03E1D2);
     color: white;
     border: none;
@@ -68,12 +130,20 @@ nav ul li a { color: white; text-decoration: none; font-weight: 500; }
     transition: 0.3s;
 }
 
-/* Subscription Cards */
+.chop:hover,
+.chop2:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+
+/* ================= SUBSCRIPTION CARDS ================= */
+
 .page-2-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
-    padding: 50px 10%;
+    padding: 80px 10%;
 }
 
 .card {
@@ -81,6 +151,13 @@ nav ul li a { color: white; text-decoration: none; font-weight: 500; }
     border-radius: 15px;
     overflow: hidden;
     position: relative;
+    cursor: pointer;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .card .content {
@@ -89,20 +166,22 @@ nav ul li a { color: white; text-decoration: none; font-weight: 500; }
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(53, 143, 239, 0.9);
+    background: rgba(53, 143, 239, 0.95);
     color: white;
     padding: 40px;
-    transition: 0.5s;
-    box-sizing: border-box;
+    transition: 0.5s ease;
 }
 
-.card:hover .content { bottom: 0; }
+.card:hover .content {
+    bottom: 0;
+}
 
-/* Sign up Section - Updated for Gradient & Centering */
+
+/* ================= SIGNUP SECTION ================= */
+
 .hero2 {
     padding: 100px 20px;
-    /* This gradient matches the vibrant look in your image */
-    background: linear-gradient(135deg, #4ef2a5, #00d2ff); 
+    background: linear-gradient(135deg, #4ef2a5, #00d2ff);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -110,14 +189,16 @@ nav ul li a { color: white; text-decoration: none; font-weight: 500; }
 }
 
 .hero2 h2 {
-    font-size: 3.5rem;
+    font-size: 3.2rem;
     color: white;
-    margin: 20px 0 40px;
-    font-weight: 700;
+    margin-bottom: 30px;
 }
 
+
+/* Social Icons */
+
 .socials {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .socials i {
@@ -125,71 +206,107 @@ nav ul li a { color: white; text-decoration: none; font-weight: 500; }
     font-size: 1.8rem;
     margin: 0 12px;
     cursor: pointer;
-    transition: transform 0.3s;
+    transition: 0.3s;
 }
 
 .socials i:hover {
     transform: scale(1.2);
 }
 
-/* Form Container */
+
+/* Form */
+
 #regForm {
     width: 100%;
-    max-width: 500px; /* Keeps the form from getting too wide */
+    max-width: 500px;
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Consistent spacing between inputs */
+    gap: 15px;
 }
 
-input, textarea {
+input,
+textarea {
     width: 100%;
     padding: 18px;
     border: none;
     border-radius: 12px;
-    font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     background: white;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    box-sizing: border-box; /* Crucial for padding */
 }
 
-/* Button - Positioned Under the Form */
+textarea {
+    resize: none;
+}
+
+
+/* Signup Button */
+
 .chop2 {
-    margin-top: 50px;
-    background: #24c6dc; /* Slightly different blue for contrast */
-    background: linear-gradient(135deg, #358FEF, #03E1D2);
-    color: white;
-    border: none;
-    padding: 15px 60px;
-    border-radius: 15px;
-    font-size: 1.3rem;
-    font-weight: 600;
-    cursor: pointer;
-    align-self: center; /* Centers the button specifically */
-    transition: 0.3s ease;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    margin-top: 20px;
+    padding: 16px 60px;
+    font-size: 1.2rem;
+    border-radius: 12px;
 }
 
-.chop2:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 25px rgba(0,0,0,0.15);
-    filter: brightness(1.05);
-}
 
-/* Responsive Fixes */
-@media (max-width: 768px) {
-    .hero2 h2 {
-        font-size: 2.5rem;
+
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width: 992px) {
+
+    .hero-content h1 {
+        font-size: 3rem;
     }
-    
-    #regForm {
+
+    .img1 {
+        max-width: 40%;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    nav ul {
+        display: none;
+    }
+
+    .hero-section {
+        padding: 120px 20px 60px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .hero-content {
         max-width: 100%;
     }
+
+    .hero-content h1 {
+        font-size: 2.4rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .img1 {
+        display: none;
+    }
+
+    .hero2 h2 {
+        font-size: 2.3rem;
+    }
+
 }
-/* Mobile Responsive */
-@media (max-width: 768px) {
-    .img1 { display: none; }
-    .hero-content h1 { font-size: 2.5rem; }
-    .nav-list { display: none; } /* Add logic for hamburger menu */
-    .input-group { flex-direction: column; }
+
+@media (max-width: 480px) {
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .chop,
+    .chop2 {
+        width: 100%;
+    }
+
 }
