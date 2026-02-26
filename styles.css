@@ -147,6 +147,7 @@ header.scrolled .nav-list li a {
     font-size: 4rem;
     color: #333;
     margin-bottom: 20px;
+    line-height: 1.5rem;
 }
 
 .hero-content p {
